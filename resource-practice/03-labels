@@ -13,7 +13,7 @@ spec:
   - name: first-cont-label
     image: nginx
     ports:
-    - containerPort:80
+    - containerPort: 80
   - name: second-cont-label
     image: almalinux:8
     command: ["sleep", "300"]
