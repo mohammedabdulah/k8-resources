@@ -1,7 +1,8 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: label-pod
+  name: hello-pod
+  namespace: roboshop
   labels:
     Course: Devops
     Trainer: siva
@@ -10,8 +11,9 @@ metadata:
     google.com.website: "www.google.com"
 spec:
   containers:
-  - name: first-cont-label
+  - name: hello-pod
     image: nginx
+    #here with this line port will not be opened, just for information
     ports:
     - containerPort: 80
   - name: second-cont-label
