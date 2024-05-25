@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: first-pod
+spec:
+  containers:
+  - name: first-cont
+    image: nginx
+    ports:
+    - containerport:80
+  - name: second-cont
+    image: almalinux:8
+    command: ["sleep", "300"]
