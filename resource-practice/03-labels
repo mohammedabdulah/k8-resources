@@ -14,8 +14,6 @@ spec:
   - name: hello-pod
     image: nginx
     #here with this line port will not be opened, just for information
-    ports:
-    - containerPort: 80
   - name: second-cont-label
     image: almalinux:8
     command: ["sleep", "300"]
