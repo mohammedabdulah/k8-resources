@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: firstconfig
+  namespace: roboshop
+data:
+  username: abdulah
+  password: nothing
+
+- - -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-env
+  namespace: roboshop
+  labels:
+    Course: Devops-with-siva
+    Trainer: siva
+  annotations:
+    com.roboshop.duration: "120hrs"
+    google.com.website: "www.google.com"
+spec:
+  containers:
+  - name: hello-envcon
+    image: nginx
+    env:
+    - name: demo greeting
+      value: "hi,good morning"
+    resources:
+      requests: 
+        cpu: "100m"
+        memory: "64Mi"
+      limits:
+        cpu: "200m"
+        memory: "128Mi"
+    #here with this line port will not be opened, just for information
+  - name: second-cont-label-env
+    image: almalinux:8
+    command: ["sleep", "300"]
+    envFrom: 
+    - ConfigMapRef:
+        name: firstconfig
